@@ -13,9 +13,9 @@ const projects = (await getCollection('projects')).sort(
 
   <div class="mb-12">
     <h1 class="mb-2">Projects</h1>
-    <p class="text-muted text-base m-0">Things I've built — from side experiments to production systems.</p>
+    <p class="text-muted text-base m-0">Things I've built. Mostly for fun and learning purposes.</p>
   </div>
-
+  {projects.length > 0 && (
   <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
     {projects.map((project) => (
       <a href={`/projects/${project.id}/`}
@@ -36,5 +36,8 @@ const projects = (await getCollection('projects')).sort(
       </a>
     ))}
   </div>
-
+  )}
+  {projects.length === 0 && (
+    <p class="text-base m-0">Projects coming soon...</p>
+  )}
 </Layout>
