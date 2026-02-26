@@ -1,0 +1,25 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Experience from '../components/resume/Experience.astro';
+import Education from '../components/resume/Education.astro';
+import Courses from '../components/resume/Courses.astro';
+import Skills from '../components/resume/Skills.astro';
+import { SITE_TITLE } from '../consts';
+
+const entry = await getEntry('resume', 'main');
+const { summary, experience, education, courses, skills } = entry!.data;
+---
+
+<Layout title={`Resume — ${SITE_TITLE}`} description="Work experience, education, and skills.">
+
+  <div class="mb-12">
+    <h1 class="mb-2">Resume</h1>
+    <p class="text-muted text-base m-0">{summary}</p>
+  </div>
+  <Education items={education} />
+  <Experience items={experience} />
+  {courses && courses.length > 0 && <Courses items={courses} />}
+  {skills && skills.length > 0 && <Skills skills={skills} />}
+
+</Layout>

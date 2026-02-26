@@ -1,0 +1,112 @@
+{
+  "$schema": "../../../.astro/collections/resume.schema.json",
+  "main": {
+    "summary": "Young professional with a passion for technology and a strong desire to learn and grow.",
+    "location": "Buenos Aires, Argentina",
+    "contact": {
+      "email": "${EMAIL_URL}",
+      "website": "${WEBSITE_URL}",
+      "linkedin": "${LINKEDIN_URL}",
+      "github": "${GITHUB_URL}"
+    },
+    "education": [
+      {
+        "degree": "Systems Engineering",
+        "institution": "Universidad Nacional del Centro de la Provincia de Buenos Aires",
+        "location": "Tandil, Buenos Aires, Argentina",
+        "dates": {
+          "start": "2021",
+          "end": "2025"
+        },
+        "description": "Graduated with an average of 8.61/10"
+      }
+    ],
+    "experience": [
+      {
+        "title": "Junior Software Engineer",
+        "company": "ISISTAN",
+        "location": "Tandil, Buenos Aires, Argentina",
+        "start": "November, 2024",
+        "end": "June, 2025",
+        "bullets": [
+          "Designed, planned, and developed a digital marketplace from the ground up.",
+          "Utilized modern technologies to develop a digital marketplace focused on food waste reduction, collaborating with a team of 4 other developers.",
+          "Tech Stack: Bun.js, Astro, React, Tailwind, PostgreSQL, Git, and Docker."
+        ]
+      },
+      {
+        "title": "Junior Software Engineer",
+        "company": "MarketPlace Motors",
+        "location": "Remote, Argentina",
+        "start": "January, 2026",
+        "description": "Leading the end-to-end development of a greenfield digital vehicle marketplace. Responsible for architecting the core platform from the ground up, selecting optimized tech stacks for specific services, and implementing AI-driven automation for marketplace integrity.",
+        "bullets": [
+          "Designed and implemented a dedicated real-time chat microservice. Selected Node.js over the primary PHP backend to leverage its asynchronous event-driven capabilities, ensuring a scalable and low-latency communication experience for users.",
+          "Developed a specialized Python service for automated vehicle listing examinations, engineering a 2-step validation with regular expressions (fast, affordable) and a locally hosted Small Language Model and Computer Vision model for further verification.",
+          "Architected a secure PHP/MySQL foundation, establishing robust authentication/authorization protocols and designing a scalable database schema for high-volume vehicle data.",
+          "Developed a modern frontend: Leveraged Next.js to build a responsive, high-performance UI, seamlessly integrating complex features like real-time messaging and dynamic vehicle listing states."
+        ]
+      }
+    ],
+    "courses": [
+      {
+        "title": "PyTorch for Deep Learning Professional Certificate",
+        "institution": "DeepLearning.AI",
+        "location": "Online",
+        "dates": {
+          "start": "December, 2025",
+          "end": "February, 2026"
+        }
+      }
+    ],
+    "skills": [
+      {
+        "category": "ML & AI",
+        "skills": [
+          "PyTorch",
+          "CNNs, RNNs, Transformers",
+          "Fine-tuning/Transfer Learning"
+        ]
+      },
+      {
+        "category": "Programming Languages",
+        "skills": [
+          "Python",
+          "JavaScript",
+          "TypeScript",
+          "PHP",
+          "SQL",
+          "Git",
+          "Shell"
+        ]
+      },
+      {
+        "category": "Tools and technologies",
+        "skills": [
+          "Git",
+          "Docker",
+          "NextJS",
+          "Tailwind",
+          "Linux based systems",
+          "Postman"
+        ]
+      },
+      {
+        "category": "Soft skills",
+        "skills": [
+          "Communication",
+          "Teamwork",
+          "Problem solving",
+          "Time management"
+        ]
+      },
+      {
+        "category": "Languages",
+        "skills": [
+          "Spanish",
+          "English"
+        ]
+      }
+    ]
+  }
+}

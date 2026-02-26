@@ -4,7 +4,8 @@ interface Job {
   company: string;
   location: string;
   start: string;
-  end: string | null;
+  end?: string;
+  description?: string;
   bullets: string[];
 }
 
@@ -13,12 +14,6 @@ interface Props {
 }
 
 const { items } = Astro.props;
-
-function formatDate(dateStr: string): string {
-  const [year, month] = dateStr.split('-');
-  const d = new Date(parseInt(year), parseInt(month) - 1);
-  return d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-}
 ---
 
 <section class="mb-12">
@@ -34,12 +29,18 @@ function formatDate(dateStr: string): string {
             </p>
           </div>
           <span class="text-[0.8rem] text-muted whitespace-nowrap shrink-0">
-            {formatDate(job.start)} &ndash; {job.end ? formatDate(job.end) : 'Present'}
+            {job.start} &ndash; {job.end ?? 'Present'}
           </span>
         </div>
-        <ul class="m-0 pl-5 flex flex-col gap-1">
+        {job.description && (
+          <p class="text-[0.9rem] leading-relaxed mb-2 mt-0">{job.description}</p>
+        )}
+        <ul class="m-0 pl-0 list-none flex flex-col gap-2">
           {job.bullets.map((b) => (
-            <li class="text-[0.9rem] leading-relaxed">{b}</li>
+            <li class="text-[0.9rem] leading-relaxed flex items-start gap-2.5">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-terra shrink-0 mt-[6px]"></span>
+              <span>{b}</span>
+            </li>
           ))}
         </ul>
       </div>
