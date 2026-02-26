@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { SITE_TITLE } from '../../consts';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: project,
+  }));
+}
+
+const project = Astro.props;
+const { title, description, pubDate, tags, github, demo } = project.data;
+const { Content } = await render(project);
+---
+
+<Layout title={`${title} — ${SITE_TITLE}`} description={description}>
+  <article class="max-w-[680px] mx-auto">
+
+    <a href="/projects" class="inline-block text-[0.85rem] text-muted hover:text-accent transition-colors no-underline mb-6">
+      &larr; Projects
+    </a>
+
+    <header class="mb-10">
+      <p class="text-[0.82rem] text-muted mb-2">
+        <FormattedDate date={pubDate} />
+      </p>
+      <h1 class="text-[2.25rem] tracking-[-0.025em] mb-3">{title}</h1>
+      <p class="text-[1.05rem] text-muted leading-relaxed mb-5">{description}</p>
+
+      <div class="flex items-center justify-between gap-4 flex-wrap mb-6">
+        <div class="flex flex-wrap gap-1.5">
+          {tags.map((tag: string) => <span class="tag">{tag}</span>)}
+        </div>
+        <div class="flex gap-3">
+          {github && (
+            <a href={github} target="_blank" rel="noopener noreferrer"
+               class="text-[0.85rem] font-semibold text-accent no-underline px-3.5 py-1.5 border border-accent/25 rounded-md hover:border-accent hover:bg-accent/5 transition-colors">
+              GitHub &nearr;
+            </a>
+          )}
+          {demo && (
+            <a href={demo} target="_blank" rel="noopener noreferrer"
+               class="text-[0.85rem] font-semibold text-white! no-underline px-3.5 py-1.5 bg-accent rounded-md hover:bg-accent-light transition-colors">
+              Live Demo &nearr;
+            </a>
+          )}
+        </div>
+      </div>
+
+      <hr />
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Layout>

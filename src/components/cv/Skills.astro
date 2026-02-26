@@ -1,0 +1,23 @@
+---
+interface Props {
+  skills: Record<string, string[]>;
+}
+
+const { skills } = Astro.props;
+---
+
+<section class="mb-12">
+  <h2 class="text-[1.1rem] font-semibold tracking-[0.08em] uppercase text-muted mb-5">Skills</h2>
+  <div class="glass p-6 flex flex-col gap-5">
+    {Object.entries(skills).map(([category, list]) => (
+      <div class="flex gap-4 items-start flex-wrap">
+        <p class="text-[0.8rem] font-semibold text-muted uppercase tracking-[0.06em] m-0 w-[90px] shrink-0 pt-[3px]">
+          {category}
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          {list.map((skill) => <span class="tag">{skill}</span>)}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { SITE_TITLE } from '../../consts';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout title={`Projects — ${SITE_TITLE}`} description="Things I've built.">
+
+  <div class="mb-12">
+    <h1 class="mb-2">Projects</h1>
+    <p class="text-muted text-base m-0">Things I've built — from side experiments to production systems.</p>
+  </div>
+
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
+    {projects.map((project) => (
+      <a href={`/projects/${project.id}/`}
+         class="glass flex flex-col p-7 no-underline text-ink transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(80,60,30,0.12)]">
+        <div class="flex items-start justify-between gap-3 flex-wrap mb-2">
+          <h2 class="text-[1.15rem] text-accent m-0">{project.data.title}</h2>
+          <span class="text-[0.78rem] text-muted shrink-0">
+            <FormattedDate date={project.data.pubDate} />
+          </span>
+        </div>
+        <p class="text-[0.9rem] text-muted leading-relaxed mb-5 grow">{project.data.description}</p>
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex flex-wrap gap-1.5">
+            {project.data.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+          </div>
+          <span class="text-[0.82rem] font-semibold text-terra shrink-0">View &rarr;</span>
+        </div>
+      </a>
+    ))}
+  </div>
+
+</Layout>
