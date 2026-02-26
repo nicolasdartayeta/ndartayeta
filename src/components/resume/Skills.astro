@@ -15,8 +15,8 @@ const { skills } = Astro.props;
   <h2 class="text-[1.1rem] font-semibold tracking-[0.08em] uppercase text-muted mb-5">Skills</h2>
   <div class="glass p-6 flex flex-col gap-5">
     {skills.map(({ category, skills: list }) => (
-      <div class="flex gap-4 items-start flex-wrap">
-        <p class="text-[0.8rem] font-semibold text-muted uppercase tracking-[0.06em] m-0 w-[90px] shrink-0 pt-[3px]">
+      <div class="flex gap-4 items-start flex-col">
+        <p class="text-[0.8rem] font-semibold text-muted uppercase tracking-[0.06em] m-0 pt-[3px]">
           {category}
         </p>
         <div class="flex flex-wrap gap-1.5">
