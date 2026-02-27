@@ -1,7 +1,7 @@
 {
   "$schema": "../../../.astro/collections/resume.schema.json",
   "main": {
-    "summary": "Young professional with a passion for technology and a strong desire to learn and grow.",
+    "summary": "Young professional with a solid academic formation in Software Engineering. Currently looking for opportunities where I can apply my knowledge and contribute to innovative solutions. Specially interested in Machine Learning and AI related roles.",
     "location": "Buenos Aires, Argentina",
     "contact": {
       "email": "${EMAIL_URL}",
