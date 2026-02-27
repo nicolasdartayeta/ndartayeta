@@ -78,7 +78,7 @@ class MemmapDataset(Dataset):
 
 Finally, to keep my project clean and scalable, I wrapped this `Dataset` (and its corresponding PyTorch `DataLoader`) inside a PyTorch `LightningDataModule`. PyTorch Lightning is great because it cleanly separates the data logic from the training loop, meaning when I eventually feed this data to the model, my data pipeline won't need to be rewritten and Lighning will handle the boilerplate training code.
 
-## Conclusion and What's Next
+## What's next
 
 Setting up the data pipeline wasn't the flashiest part of this project, but getting it right feels incredibly rewarding. Going from raw text to a trained custom tokenizer, saving the outputs efficiently to a binary file, and streaming them seamlessly into PyTorch via `memmap` has given me a much deeper appreciation for the engineering behind LLMs.
 
