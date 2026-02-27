@@ -257,7 +257,7 @@ export const GET: APIRoute = async () => {
   return new Response(bytes, {
     headers: {
       'Content-Type': 'application/pdf',
-      'Content-Disposition': 'attachment; filename="resume.pdf"',
+      'Content-Disposition': 'attachment; filename="Nicolas-Dartayeta-Resume.pdf"',
       'Cache-Control': 'public, max-age=31536000, immutable',
     },
   });

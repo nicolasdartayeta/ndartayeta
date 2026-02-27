@@ -16,7 +16,7 @@
 
 /* ── CSS-only vars (glass + blob palette) ────────────────────────────── */
 :root {
-  --glass-bg:     rgba(255, 252, 247, 0.68);
+  --glass-bg:     rgba(255, 252, 247, 0.50);
   --glass-blur:   18px;
   --glass-border: rgba(255, 255, 255, 0.75);
   --glass-shadow: rgba(80, 60, 30, 0.08);
