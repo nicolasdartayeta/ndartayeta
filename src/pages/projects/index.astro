@@ -29,7 +29,7 @@ const projects = (await getCollection('projects')).sort(
         <p class="text-[0.9rem] text-muted leading-relaxed mb-5 grow">{project.data.description}</p>
         <div class="flex items-center justify-between gap-2">
           <div class="flex flex-wrap gap-1.5">
-            {project.data.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+            {project.data.tags && project.data.tags.map((tag: string) => <span class="tag">{tag}</span>)}
           </div>
           <span class="text-[0.82rem] font-semibold text-terra shrink-0">View &rarr;</span>
         </div>
